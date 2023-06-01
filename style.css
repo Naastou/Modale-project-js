@@ -1,0 +1,132 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.5;
+}
+
+.hero-header {
+  min-height: 100vh;
+  background: url("./art-gd9e2826c4_1280.jpg") center/cover no-repeat;
+  display: grid;
+  place-items: center;
+}
+.hero-banner {
+  background: white;
+  padding: 4rem 0;
+  border-radius: 1rem;
+  text-align: center;
+  width: 90vw;
+  max-width: 620px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.hero-title {
+  font-size: 4rem;
+  text-transform: capitalize;
+  color: rgba(95, 49, 3, 0.966);
+}
+.modal-btn {
+  background: rgba(175, 127, 80, 0.324);
+  color: rgba(95, 49, 3, 0.966);
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+  border: transparent;
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+.modal-btn:hover {
+  color: white;
+  background: rgba(95, 49, 3, 0.966);
+}
+.modal-overlay {
+  display: none;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  opacity: 0;
+  z-index: -10;
+  transition: all 0.3s linear;
+  text-align: center;
+}
+
+.show-modal {
+  opacity: 1;
+  z-index: 999;
+}
+.modal-overlay.show-modal .modal-container {
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes unfoldIn {
+  0% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
+@keyframes unfoldOut {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+}
+.modal-container {
+  background: white;
+  display: grid;
+  place-items: center;
+  width: 90vw;
+  max-width: 620px;
+  height: 23vh;
+  border-radius: 10px;
+  position: relative;
+  transform: scaleY(0.01) scaleX(0);
+  animation: unfoldOut 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.modal-container h3 {
+  text-transform: capitalize;
+  font-size: 2rem;
+  color: rgba(95, 49, 3, 0.966);
+  letter-spacing: 0.2rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border-color: transparent;
+  color: rgb(160, 8, 8);
+  font-size: 2rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+.close-btn:hover {
+  color: rgba(243, 8, 8, 0.993);
+  transform: scale(1.3);
+}
